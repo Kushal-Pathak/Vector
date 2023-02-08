@@ -1,5 +1,6 @@
 #include <iostream>
 #include <math.h>
+#include <iomanip>
 
 class Vector2 {
 public:
@@ -77,7 +78,7 @@ public:
 		mag = 1;
 	}
 
-	void add_mag2d(float m) {
+	void add_mag(float m) {
 		float temp_mag = mag;
 		normalise2d();
 		mag = temp_mag + m;
@@ -103,7 +104,7 @@ public:
 	}
 
 	void display() {
-		std::cout << "X: " << x << "\tY: "<< y << "\tMagnitude: " << mag << std::endl;
+		std::cout << "X: " << std::setprecision(3) << x << "\tY: "<< std::setprecision(3) << y << "\tMagnitude: " << std::setprecision(4) << mag << std::endl;
 	}
 
 private:
@@ -111,11 +112,24 @@ private:
 };
 
 
-
 int main() {
-	Vector2 v1(3,4), v2(2,2);
+	Vector2 v1(0,1), v2(2,2);
 	v1.display();
-	v1.add_mag2d(20);
+
+	//v1.translate2d(2, 2);
+	//v1.translateX(2);
+	//v1.translateY(2);
+	//v1.scale2d(2, 2);
+	//v1.scaleX(2);
+	//v1.scaleY(2);
+	//v1.rotate2d(0, 0, 90);
+	//v1.add_vector2d(v2);
+	//v1.subtract_vector2d(v2);
+	//v1.normalise2d();
+	//v1.add_mag(10);
+	//std::cout<<v1.dot_product(v2)<<std::endl;
+	//v1.multiply_scalar(10);
+
 	v1.display();
 	system("pause");
 	return 0;
