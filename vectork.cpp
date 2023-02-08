@@ -173,6 +173,26 @@ public:
 		calculate_mag();
 	}
 
+	void rotateX(float k, float w, float angle) {
+		angle = (3.14159f / 180) * angle;
+		float temp_y, temp_z;
+		temp_y = (y - k) * cos(angle) - (z - w) * sin(angle) + k;
+		temp_z = (y - k) * sin(angle) + (z - w) * cos(angle) + w;
+		y = temp_y;
+		z = temp_z;
+		calculate_mag();
+	}
+
+	void rotateY(float w, float h, float angle) {
+		angle = (3.14159f / 180) * angle;
+		float temp_z, temp_x;
+		temp_z = (z - w) * cos(angle) - (x - h) * sin(angle) + w;
+		temp_x = (z - w) * sin(angle) + (x - h) * cos(angle) + h;
+		z = temp_z;
+		x = temp_x;
+		calculate_mag();
+	}
+
 	void rotateZ(float h, float k, float angle) {
 		angle = (3.14159f / 180) * angle;
 		float temp_x, temp_y;
@@ -180,26 +200,6 @@ public:
 		temp_y = (x - h) * sin(angle) + (y - k) * cos(angle) + k;
 		x = temp_x;
 		y = temp_y;
-		calculate_mag();
-	}
-
-	void rotateX(float w, float k, float angle) {
-		angle = (3.14159f / 180) * angle;
-		float temp_z, temp_y;
-		temp_z = (z - w) * cos(angle) - (y - k) * sin(angle) + w;
-		temp_y = (z - w) * sin(angle) + (y - k) * cos(angle) + k;
-		z = temp_z;
-		y = temp_y;
-		calculate_mag();
-	}
-
-	void rotateY(float w, float h, float angle) {
-		angle = (3.14159f / 180) * angle;
-		float temp_z, temp_x;
-		temp_z = (z - w) * cos(angle) - (y - h) * sin(angle) + w;
-		temp_x = (z - w) * sin(angle) + (y - h) * cos(angle) + h;
-		z = temp_z;
-		x = temp_x;
 		calculate_mag();
 	}
 
@@ -281,7 +281,7 @@ int main() {
 	//v1.multiply_scalar(10);
 	//v1.display();
 
-	Vector3 v1(10, 10, 10), v2(2, 2, 2);
+	Vector3 v1(3, 10, 0), v2(2, 2, 2);
 	v1.display();
 	//v1.translate3d(2, 2, 2);
 	//v1.translateX(2);
@@ -291,11 +291,9 @@ int main() {
 	//v1.scaleX(2);
 	//v1.scaleY(2);
 	//v1.scaleZ(2);
-	// 
 	//v1.rotateX(0, 0, 90);
 	//v1.rotateY(0, 0, 90);
 	//v1.rotateZ(0, 0, 90);
-	// 
 	//v1.add_vector3d(v2);
 	//v1.subtract_vector3d(v2);
 	//v1.normalise3d();
